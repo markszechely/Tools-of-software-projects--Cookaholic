@@ -2,7 +2,7 @@ pipeline {
 
   agent any
   environment {
-    PATH = "/usr/local/bin/mvn:$PATH"
+    PATH = "/usr/local/Cellar/maven/3.8.5:$PATH"
   }
   
   stages {
