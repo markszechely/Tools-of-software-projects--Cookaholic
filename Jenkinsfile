@@ -1,9 +1,6 @@
 pipeline {
 
   agent any
-  environment {
-    PATH = "/usr/local/Cellar/maven/3.8.5:$PATH"
-  }
   
   stages {
   
@@ -11,7 +8,9 @@ pipeline {
     
       steps {
         echo 'builing app'
-        sh "mvn clean install"
+        withMaven(maven : 'maven_3_5_0') {
+          sh "mvn clean compile"
+        }
       }    
     }
     stage("test") {
